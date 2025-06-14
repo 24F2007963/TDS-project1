@@ -14,6 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+print("OPENAI_API_KEY is:", os.getenv("OPENAI_API_KEY"))
 # Load the cleaned content JSON (already preprocessed)
 with open("cleaned_content.json", "r", encoding="utf-8") as f:
     documents = json.load(f)
