@@ -1,10 +1,14 @@
 import os
 from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import json
 import requests
 
 app = FastAPI()
+
+
+app.mount("/", StaticFiles(directory="public", html=True), name="static")
 
 # Enable CORS for local testing
 app.add_middleware(
