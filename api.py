@@ -15,6 +15,7 @@ app.add_middleware(
 )
 
 print("OPENAI_API_KEY is:", os.getenv("OPENAI_API_KEY"))
+
 # Load the cleaned content JSON (already preprocessed)
 with open("cleaned_content.json", "r", encoding="utf-8") as f:
     documents = json.load(f)
@@ -23,7 +24,7 @@ with open("cleaned_content.json", "r", encoding="utf-8") as f:
 API_URL = "http://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
 API_KEY = os.getenv("OPENAI_API_KEY")
 if not API_KEY:
-    raise Exception("OPENAI_API_KEY environment variable is not set")
+    raise Exception("OPENAI_API_KEY environment variable is'nt't set")
 
 HEADERS = {
     "Authorization": f"Bearer {API_KEY}",
