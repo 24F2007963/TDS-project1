@@ -19,8 +19,12 @@ with open("cleaned_content.json", "r", encoding="utf-8") as f:
 
 # Use your proxy here
 API_URL = "http://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
+API_KEY = os.getenv("OPENAI_API_KEY")
+if not API_KEY:
+    raise Exception("OPENAI_API_KEY environment variable is not set")
+
 HEADERS = {
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjI0ZjIwMDc5NjNAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.WX25Im8kBdVEhn_eGdZza0bE29sqdWmJMyUbWrjdo5Y",
+    "Authorization": f"Bearer {API_KEY}",
     "Content-Type": "application/json"
 }
 
