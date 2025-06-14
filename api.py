@@ -8,7 +8,7 @@ import requests
 app = FastAPI()
 
 
-app.mount("/", StaticFiles(directory="public", html=True), name="static")
+# app.mount("/", StaticFiles(directory="public", html=True), name="static")
 
 # Enable CORS for local testing
 app.add_middleware(
